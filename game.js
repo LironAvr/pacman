@@ -8,10 +8,11 @@ var gameMusic;
 
 var ghosts = [];
 var corners = [{x : 30, y : 30} , { x : 370, y : 30 }, { x : 370, y : 450 }, { x: 30 , y : 430}];
-var ghostsPictures =["./images/game/ghost1.png", "./images/game/ghost2.png", "./images/game/ghost3.png"];
+var ghostsPictures =["images/ghost.png"];
+var poisonPicture = "images/poison.png";
 var pacman;
 var numOfGhost;
-var angel;
+var creditBonus;
 var coinsArray;
 var intervalId;
 var canvas;
@@ -28,11 +29,10 @@ var isJustLostLife = false;
 var bonuses = [];
 
 var timeAddition;
-var extraLife;
 
 //NEW
 var oppositeCurse;
-
+var poison;
 
 //
 
@@ -55,7 +55,7 @@ function init(){ // initialization function
     numOfGhost = $("#slct_numOfGhosts").val();
     createGhosts();
 
-    angel = {x : 390, y : 30, radius : 10 , imagePath: './images/game/cherry.png', direction: 39, speed: 4, cost : 50};
+    creditBonus = {x : 390, y : 30, radius : 10 , imagePath: 'images/bonus.png', direction: 39, speed: 4, cost : 50};
     numOfCoins = $("#slct_numCoins").val();
     timeLeft = $("#inp_duration").val();
     gamePoints = 0;
@@ -69,9 +69,9 @@ function init(){ // initialization function
     });
     setCoins();
     setTimeAddition();
-    setExtraLife();
     setSpeedAddition();
-    setOppositeCurse()
+    setOppositeCurse();
+    setPoison();
     counterToOneSecond = 0; // helper for game timer
     lives = 3;
     isGameStaring = false;
@@ -144,7 +144,7 @@ function setCoins()
 
     while (_5points > 0)
     {
-        coinsArray.push(createCoin(5, "yellow"));
+        coinsArray.push(createCoin(5, "orange"));
         _5points -= 1;
     }
     while (_15points > 0)
@@ -154,20 +154,11 @@ function setCoins()
     }
     while (_25points > 0)
     {
-        coinsArray.push(createCoin(25, "orange"));
+        coinsArray.push(createCoin(25, "yellow"));
         _25points -= 1;
     }
 }
 
-function setTimeAddition()
-{
-    timeAddition = initBonusWithPlace(3);
-    timeAddition.imagePath = "./images/game/clock3.png";
-    timeAddition.doMagic = function() {
-        timeLeft += 20;
-    };
-    bonuses.push(timeAddition);
-}
 
 function checkBonusesCollion()
 {
@@ -186,21 +177,20 @@ function checkBonusesCollion()
     }
 }
 
-function setExtraLife(){
-    extraLife = initBonusWithPlace(4, extraLife);
-    extraLife.imagePath = "./images/game/1up2.png";
-    extraLife.doMagic = function() {
-        lives += 1;
-        extraLife = null;
+function setPoison(){
+    poison = initBonusWithPlace(4, poison);
+    poison.imagePath = "./images/game/1up2.png"; //TODO: change poison picture
+    poison.doMagic = function() {
+        diePacmanDie(1);
     }
-    bonuses.push(extraLife);
+    bonuses.push(poison);
 }
 
 function setOppositeCurse(){
     curse = initBonusWithPlace(4, curse);
     curse.imagePath = "opposite curse picture";
     curse.doMagic = function() {
-        oppositeCurse += 150;
+        oppositeCurse = 30;
         curse = null;
     }
     bonuses.push(curse);
@@ -279,11 +269,10 @@ function maintainSpeedAdd()
     }
 }
 
-// function get cost color and return coin
-function createCoin(_cost, _color){
+function createCoin(bonus, color){
     var place = getRandomEmptyTile();
     board[place[1]][place[0]] = 2;
-    var coin = {x : place[0]*20+10 , y : place[1]*20+10, radius : 6, color : _color, cost: _cost};
+    var coin = {x : place[0]*20+10 , y : place[1]*20+10, radius : 6, color : color, cost: bonus};
     return coin;
 }
 
@@ -297,7 +286,7 @@ function printBoard() {
                 ctx.fillStyle="black";
                 ctx.fillRect(col*20,row*20,20,20);
             } else {
-                ctx.fillStyle="green";
+                ctx.fillStyle="blue";
                 ctx.fillRect(col*20,row*20,20,20);
             }
         }
@@ -320,6 +309,10 @@ function startPositionPacman()
 
 function doMovePacman()
 {
+    if (oppositeCurse > 0){
+        oppositeCurse--;
+        oppositeDirection();
+    }
     // if that checks if we need to change direction to the next direction that saved in memory for pacman
     if (checkPosibleStep(pacman.currentDirection, pacman) == false || checkPosibleStep(pacman.nextDirection, pacman))
     {
@@ -342,6 +335,13 @@ moves = {
     38 : function(figure) { figure.y -= figure.speed; }, //up
     39 : function(figure) { figure.x += figure.speed; }, //right
     40 : function(figure) { figure.y += figure.speed; }  // down
+}
+
+function oppositeDirection(){
+    if (37 == pacman.currentDirection) pacman.currentDirection = 39;
+    else if (38 == pacman.currentDirection) pacman.currentDirection = 40;
+    else if (39 == pacman.currentDirection) pacman.currentDirection = 37;
+    else if (40 == pacman.currentDirection) pacman.currentDirection = 38;
 }
 
 // return true if it possible to make step to the given figure in the given direction
@@ -544,23 +544,29 @@ function checkGhostsCollision()
         {
             if (checkCollision(pacman,ghost))
             {
-                clearInterval(intervalId);
-                lives--;
-                isJustLostLife = true;
-                ctx.font = "30px Arial";
-                ctx.fillStyle="white"
-                ctx.fillText("lost 1 live" ,100, 100);
-                setTimeout(function() {
-                    if (lives != 0)
-                    {
-                        startPlaying();
-                    } else {
-                        Game();
-                    }
-                }, 1500);
+                diePacmanDie(2);
             }
         }
     }
+}
+
+function diePacmanDie(type){
+    clearInterval(intervalId);
+    lives--;
+    var msg = "You have to run faster!";
+    isJustLostLife = true;
+    ctx.font = "30px Arial";
+    ctx.fillStyle="white"
+    if (1 == type) msg = "Wrong thing to eat!";
+    ctx.fillText(msg ,100, 100);
+    setTimeout(function() {
+        if (lives != 0)
+        {
+            startPlaying();
+        } else {
+            Game();
+        }
+    }, 1500);
 }
 
 function checkCollision(figureA, figureB)
@@ -656,40 +662,40 @@ function moveGhosts()
     } // if ghost.isAlive
 }
 
-/*
-function moveAngel()
+
+function movecreditBonus()
 {
-    if (angel.x < 0) { // exit the board from the left
-        angel.x = canvas.width - 10;
+    if (creditBonus.x < 0) { // exit the board from the left
+        creditBonus.x = canvas.width - 10;
         return;
     }
 
-    if (angel.x > canvas.width - 1) { // exit the board from the left
-        angel.x = 10;
+    if (creditBonus.x > canvas.width - 1) { // exit the board from the left
+        creditBonus.x = 10;
         return;
     }
 
-    if (checkPosibleStep(angel.direction, angel)) {
-        moves[angel.direction](angel);
+    if (checkPosibleStep(creditBonus.direction, creditBonus)) {
+        moves[creditBonus.direction](creditBonus);
     }
 
-    var posibleMoves = getPosibleMoves(angel);
+    var posibleMoves = getPosibleMoves(creditBonus);
     if (posibleMoves.length >= 3) {
         var randDirection = Math.floor((Math.random() * posibleMoves.length));
-        angel.direction = posibleMoves[randDirection];
+        creditBonus.direction = posibleMoves[randDirection];
     } else if (posibleMoves.length == 2) {
-        angel.direction = getNewDirection(angel);
+        creditBonus.direction = getNewDirection(creditBonus);
     }
 }
 
-function printAngel()
+function printcreditBonus()
 {
     var imageObj = new Image();
     imageObj.width = "20px";
     imageObj.height = "20px";
-    imageObj.src = angel.imagePath;
-    ctx.drawImage(imageObj, angel.x - angel.radius, angel.y -angel.radius , 20, 20);
-}*/
+    imageObj.src = creditBonus.imagePath;
+    ctx.drawImage(imageObj, creditBonus.x - creditBonus.radius, creditBonus.y -creditBonus.radius , 20, 20);
+}
 
 //return array with all the possible moves to the given figure. max = 4 directions
 function getPosibleMoves(figure){
@@ -744,10 +750,10 @@ function Game() // main game loop
     moveGhosts();
     draw();
     checkGameWin();
-    if (angel != null)
+    if (creditBonus != null)
     {
-        moveAngel();
-        checkAngelCollision();
+        movecreditBonus();
+        checkcreditBonusCollision();
     }
     if (lives == 0)
     {
@@ -784,20 +790,20 @@ function draw()
     printPacman(); // print the figure
     printCoin();
     printGhosts();
-    if (angel != null)
+    if (creditBonus != null)
     {
-        printAngel();
+        printcreditBonus();
     }
     printBonuses();
     drawLives();
 }
 
-function checkAngelCollision()
+function checkcreditBonusCollision()
 {
-    if (checkCollision(pacman, angel))
+    if (checkCollision(pacman, creditBonus))
     {
-        gamePoints += angel.cost;
-        angel = null;
+        gamePoints += creditBonus.cost;
+        creditBonus = null;
     }
 }
 
