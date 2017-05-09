@@ -1,0 +1,241 @@
+#pacman_logo{
+	width: 250px;
+	height: 70px;
+}
+body{
+	/*background-color: #505050;*/
+  font:14px/1.5 Arial, Helvetica, sans-serif;
+}
+html{
+  background-color: #eaf0f2;
+}
+header{
+	background-color: #5F5F5F;
+}
+
+#main {
+	/*background-color: #FABC01;*/
+    transition: margin-left .5s;
+    padding: 0px;
+}
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+/*@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}*/
+
+.labelY {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #FABC01;
+  border: none;
+  border-radius: 15px;
+}
+
+.labelY-rightAlign{
+  align: right;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #FABC01;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #ED9519}
+
+.button:active {
+  background-color: #ED9519;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#mydiv {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    /*width:70%;
+    height:70%;
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    /*margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    /*border: 1px solid #ccc;
+    background-color: #f3f3f3;
+    transition: margin-left .5s;*/
+}
+
+.divider{
+    width:50px;
+    height:auto;
+    display:inline-block;
+}
+
+.container{width: 960px; margin: 0 auto;}
+
+
+#login {
+    padding-bottom: 20px;
+}
+
+#register {
+    /*background: #0DA1FF;*/
+    padding-bottom: 20px;
+}
+
+#setting label{
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+    }
+    #setting_submit{
+      padding-left: 100px;
+    }
+    #setting div{
+      margin-top: 1em;
+    }
+
+#contact-R label{
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+    }
+    #contact-R_submit{
+      padding-left: 100px;
+    }
+    #contact-R div{
+      margin-top: 1em;
+    }
+    #contact-L label{
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+    }
+    #contact-L_submit{
+      padding-left: 100px;
+    }
+    #contact-L div{
+      margin-top: 1em;
+    }
+    textarea{
+      vertical-align: top;
+      height: 5em;
+    }
+      
+    .error{
+      display: none;
+      margin-left: 10px;
+    }   
+    
+    .error_show{
+      color: red;
+      margin-left: 10px;
+    }
+    
+    input.invalid, textarea.invalid{
+      border: 2px solid red;
+    }
+    
+    input.valid, textarea.valid{
+      border: 2px solid green;
+    }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.img_develop{
+  border-radius: 15px;
+  }
+
+  #div_game{
+    position: relative;
+    width: 460px;
+    margin: auto;
+}
+
