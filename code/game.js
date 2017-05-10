@@ -74,7 +74,7 @@ function init(){ // initialization function
     lives = 3;
     isGameStaring = false;
     speedmode = false;
-    //playSound(sounds["gameSound"]);
+    playSound(sounds["gameSound"]);
 }
 
 function copyArr(array) // helper method
@@ -110,7 +110,11 @@ function createGhosts() //TODO: fix ghost creation
                 startingX: corners[i + 1].x,
                 startingY: corners[i + 1].y
             };
+            var position = {x : -1, y : -1};
+            ghost.oldStart = position;
             ghost.imagePath = ghostsPictures[i];
+            ghost.oldGoal = position.copy();
+
             ghost.grid = copyArr(grid);
         }
 
@@ -703,7 +707,7 @@ function moveGhosts()
     {
         doMovePacman();
         checkCoinsCollision();
-        //moveGhosts();
+        moveGhosts();
         draw();
         checkGameWin();
         if (creditBonus != null) {
@@ -720,7 +724,7 @@ function moveGhosts()
         }
 
         checkBonusesCollision();
-        //checkGhostsCollision();
+        checkGhostsCollision();
         handelTimer();
     }
 
@@ -736,7 +740,7 @@ function moveGhosts()
         printBoard(); // print the board
         printPacman(); // print the figure
         printCoin();
-        //printGhosts();
+        printGhosts();
         if (creditBonus != null) {
             printCreditBonus();
         }
@@ -839,7 +843,7 @@ function printPicture(figure) {
 }
 
 function playSound(path) {
-    gameMusic = new Audio(path); // ASK ALON HOW TO ADD AUDIO
+    var gameMusic = new Audio(path); // ASK ALON HOW TO ADD AUDIO
     gameMusic.play();
 }
 
