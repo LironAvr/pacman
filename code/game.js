@@ -1,9 +1,9 @@
 /**
  * Created by lirona on 06/05/2017.
  */
-// global variables
-var moves = {}; // dictionary for moves, dictionary of functions
-//var sounds = {"gameSound" : "./sounds/game.mp3"}
+
+var moves = {};
+var sounds = {"gameSound" : "sounds/music.mp3"}
 var gameMusic;
 
 var ghosts = [];
@@ -41,10 +41,6 @@ var speedAddition;
 var speedmode;
 var speedSecondsCounter;
 
-var eatGhostBonus;
-var eattingGhostMode;
-var eattingModeCounter;
-
 var topScore = -1;
 
 function init(){ // initialization function
@@ -54,7 +50,7 @@ function init(){ // initialization function
     startPositionPacman(); // we override the pacman x and y
 
     numOfGhost = $("#ghostsNum").val();
-    //createGhosts();
+    createGhosts();
 
     creditBonus = {x : 390, y : 30, radius : 10 , imagePath: bonusPicture, direction: 39, speed: 4, cost : 50};
     numOfCoins = $("#coinsNum").val();
@@ -63,7 +59,7 @@ function init(){ // initialization function
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
     window.addEventListener("keydown", function(){
-        if (event.keyCode >= 37 && event.keyCode <= 40) // check if this only direction key
+        if (event.keyCode >= 37 & event.keyCode <= 40) // check if this only direction key
         {
             pacman.nextDirection = event.keyCode;
         }
@@ -76,38 +72,28 @@ function init(){ // initialization function
     lives = 3;
     isGameStaring = false;
     speedmode = false;
-    eattingGhostMode = false;
-    startEatTime = -1;
-    setEatGhost();
-    //playSound(sounds["gameSound"]);
+    playSound(sounds["gameSound"]);
 }
 
-function createGhosts()
+function createGhosts() //TODO: fix ghost creation
 {
     for (var i = 0; i < numOfGhost; i++)
     {
-        if (ghosts[i] == null)
-        {
-            var ghost = {x : corners[i+1].x, y : corners[i+1].y, radius : 10 , color: 'white', direction : 37, speed : 4, startingX : corners[i+1].x, startingY : corners[i+1].y};
-
+        if (ghosts[i] == null) {
+            var ghost = {
+                x: corners[i + 1].x,
+                y: corners[i + 1].y,
+                radius: 10,
+                color: 'white',
+                direction: 37,
+                speed: 4,
+                startingX: corners[i + 1].x,
+                startingY: corners[i + 1].y
+            };
             ghost.imagePath = ghostsPictures[i];
-            ghost.grid = copyArr(grid);
-            ghost.isAlive = true;
-
-            var position = {x : -1, y : -1};
-            ghost.oldStart = position; // for a star alghorithm
-            var position = {x : -1, y : -1};
-            ghost.oldGoal = position; // for a star alghorithm
+        }
 
             ghosts.push(ghost)
-        } else { // reset the position after the ghost been eatten
-            if (ghosts[i].isAlive == false)
-            {
-                ghosts[i].x = corners[i+1].x;
-                ghosts[i].y = corners[i+1].y;
-                ghosts[i].isAlive = true;
-            }
-        }
     }
     console.log(ghosts);
 }
@@ -163,7 +149,6 @@ function setCoins()
     }
 }
 
-
 function checkBonusesCollion()
 {
     for (var i =0; i < bonuses.length; i++)
@@ -203,7 +188,7 @@ function setOppositeCurse(){
 function setSpeedAddition()
 {
     speedAddition = initBonusWithPlace(5);
-    speedAddition.imagePath = "./images/game/fast.png"
+    speedAddition.imagePath = "./images/game/speed.png"
     speedAddition.doMagic = function() {
         speedmode = true;
         pacman.speed = 10;
@@ -221,40 +206,6 @@ function printBonuses(){
         {
             printPicture(bonus);
         }
-    }
-}
-
-function setEatGhost()
-{
-    eatGhostBonus = initBonusWithPlace(6);
-    eatGhostBonus.imagePath = "./images/game/superpower.jpg";
-    eattingModeCounter = 0;
-    eatGhostBonus.doMagic = function() {
-        if (eattingGhostMode == false)
-        {
-            eattingGhostMode = true;
-            startEatTime = timeLeft;
-        }
-    }
-    bonuses.push(eatGhostBonus);
-}
-
-function maintainEattingGhost()
-{
-    if (eattingModeCounter * intervalSize < 6000)
-    {
-        eattingModeCounter++;
-        for (var i = 0; i < ghosts.length; i++)
-        {
-            if (checkCollision(pacman, ghosts[i]) == true)
-            {
-                ghosts[i].isAlive = false;
-            }
-        }
-    } else { // 6 seconds pass, delete the bonus
-        eatGhostBonus = null;
-        eattingGhostMode = false;
-        //createGhosts();
     }
 }
 
@@ -318,7 +269,7 @@ function doMovePacman()
         oppositeDirection();
     }
     // if that checks if we need to change direction to the next direction that saved in memory for pacman
-    if (checkPosibleStep(pacman.currentDirection, pacman) == false || checkPosibleStep(pacman.nextDirection, pacman))
+    if (possibleStep(pacman.currentDirection, pacman) == false || possibleStep(pacman.nextDirection, pacman))
     {
         if (pacman.currentDirection != 0) // we dont want to assign 0 to previousDirection
         {
@@ -328,7 +279,7 @@ function doMovePacman()
         pacman.nextDirection = 0;
     }
 
-    if (checkPosibleStep(pacman.currentDirection, pacman))
+    if (possibleStep(pacman.currentDirection, pacman))
     {
         moves[pacman.currentDirection](pacman);
     }
@@ -349,7 +300,7 @@ function oppositeDirection(){
 }
 
 // return true if it possible to make step to the given figure in the given direction
-function checkPosibleStep(direction, figure)
+function possibleStep(direction, figure)
 {
     var fixX;
     var fixY;
@@ -519,23 +470,11 @@ function printGhosts(){
     for(var i = 0; i < numOfGhost; i++)
     {
         var ghost = ghosts[i];
-        if (ghost.isAlive == true) // check if pacman is not eatten by pacman
-        {
-            if (eattingGhostMode == false ) { // regular mode, no eat ghost mode
-                var imageObj = new Image();
-                imageObj.width = "20px";
-                imageObj.height = "20px";
-                imageObj.src = ghost.imagePath;
-                ctx.drawImage(imageObj, ghost.x - ghost.radius, ghost.y -ghost.radius , 20, 20);
-            } else { // eat ghost mode is on, apply special picture for the ghost
-                var imageObj = new Image();
-                imageObj.width = "20px";
-                imageObj.height = "20px";
-                imageObj.src = "./images/game/eatGhost.png";
-                ctx.drawImage(imageObj, ghost.x - ghost.radius, ghost.y -ghost.radius , 20, 20);
-            }
-
-        }
+        var imageObj = new Image();
+        imageObj.width = "20px";
+        imageObj.height = "20px";
+        imageObj.src = ghost.imagePath;
+        ctx.drawImage(imageObj, ghost.x - ghost.radius, ghost.y -ghost.radius , 20, 20);
     }
 }
 
@@ -544,12 +483,9 @@ function checkGhostsCollision()
     for (var i = 0; i < ghosts.length; i++)
     {
         var ghost = ghosts[i];
-        if (ghost.isAlive == true) // check if the ghost is not eatten by pacman
+        if (checkCollision(pacman,ghost))
         {
-            if (checkCollision(pacman,ghost))
-            {
-                diePacmanDie(2);
-            }
+            diePacmanDie(2);
         }
     }
 }
@@ -587,7 +523,7 @@ function checkCollision(figureA, figureB)
 }
 
 
-function checkCoinsColision(){
+function checkCoinsCollision(){
     document.getElementById("userPoints").innerHTML = "Points : " + gamePoints;
     if (coinsArray.length != 0)
     {
@@ -609,298 +545,259 @@ function moveGhosts()
     for (var i = 0; i < ghosts.length; i++)
     {
         var ghost = ghosts[i];
-        if (ghost.isAlive == true) // check if pacman didnt eat the ghost
+        var possibleMoves = getPossibleMoves(ghost).length;
+
+        if (possibleMoves >= 3) // check if this is a greater than 3 roads crossroad
         {
-            var posibleMoves = getPosibleMoves(ghost).length;
-
-            if (posibleMoves >= 3) // check if this is a greater than 3 roads crossroad
+            var ghostFixX = Math.floor(ghost.x / 20);
+            var ghostFixY = Math.floor(ghost.y / 20);
+            var pacmanFixX = Math.floor(pacman.x / 20);
+            var pacmanFixY = Math.floor(pacman.y / 20);
+            //remove ghost from previous location
+            //find the new location for the ghost
+            var directions = getBestMoveForGhost(ghost);
+            var directionForGhost = directions[0];
+            console.log(directions);
+            if (directionForGhost == 'East') // right
             {
-                var ghostFixX = Math.floor(ghost.x / 20);
-                var ghostFixY = Math.floor(ghost.y / 20);
-                var pacmanFixX = Math.floor(pacman.x / 20);
-                var pacmanFixY = Math.floor(pacman.y / 20);
-
-                // delete the old start and goal
-                if (ghost.oldStart.x != -1)
-                {
-                    ghost.grid[ghost.oldStart.y][ghost.oldStart.x] = 'Empty';
-                    ghost.grid[ghost.oldGoal.y][ghost.oldGoal.x] = 'Empty';
-                }
-
-                ghost.oldStart.x = ghostFixX;
-                ghost.oldStart.y = ghostFixY;
-                ghost.oldGoal.x = pacmanFixX;
-                ghost.oldGoal.y = pacmanFixY;
-
-                ghost.grid[ghostFixY][ghostFixX] = "start";
-                ghost.grid[pacmanFixY][pacmanFixX] = "Goal";
-
-                var directions = findShortestPath([ghostFixY,ghostFixX],ghost.grid); // using A* algorithm for finding shortest path
-                var directionForGhost = directions[0];
-                console.log(directions);
-
-                if (directionForGhost == 'East') // right
-                {
-                    ghost.direction = 39;
-                }
-
-                if (directionForGhost == 'West') // left
-                {
-                    ghost.direction = 37;
-                }
-
-                if (directionForGhost == 'North') // left
-                {
-                    ghost.direction = 38;
-                }
-
-                if (directionForGhost == 'South') // left
-                {
-                    ghost.direction = 40;
-                }
-            } else if (posibleMoves == 2) {
-                ghost.direction = getNewDirection(ghost);
+                ghost.direction = 39;
             }
-            moves[ghost.direction](ghost);
+            if (directionForGhost == 'West') // left
+            {
+                ghost.direction = 37;
+            }
+            if (directionForGhost == 'North') // left
+            {
+                ghost.direction = 38;
+            }
+            if (directionForGhost == 'South') // left
+            {
+                ghost.direction = 40;
+            }
+        } else if (posibleMoves == 2) {
+            ghost.direction = getNewDirection(ghost);
         }
-    } // if ghost.isAlive
-}
-
-
-function movecreditBonus()
-{
-    if (creditBonus.x < 0) { // exit the board from the left
-        creditBonus.x = canvas.width - 10;
-        return;
-    }
-
-    if (creditBonus.x > canvas.width - 1) { // exit the board from the left
-        creditBonus.x = 10;
-        return;
-    }
-
-    if (checkPosibleStep(creditBonus.direction, creditBonus)) {
-        moves[creditBonus.direction](creditBonus);
-    }
-
-    var posibleMoves = getPosibleMoves(creditBonus);
-    if (posibleMoves.length >= 3) {
-        var randDirection = Math.floor((Math.random() * posibleMoves.length));
-        creditBonus.direction = posibleMoves[randDirection];
-    } else if (posibleMoves.length == 2) {
-        creditBonus.direction = getNewDirection(creditBonus);
+        moves[ghost.direction](ghost);
     }
 }
 
-function printcreditBonus()
-{
-    var imageObj = new Image();
-    imageObj.width = "20px";
-    imageObj.height = "20px";
-    imageObj.src = creditBonus.imagePath;
-    ctx.drawImage(imageObj, creditBonus.x - creditBonus.radius, creditBonus.y -creditBonus.radius , 20, 20);
-}
+    function moveCreditBonus() {
+        if (creditBonus.x < 0) { // exit the board from the left
+            creditBonus.x = canvas.width - 10;
+            return;
+        }
+
+        if (creditBonus.x > canvas.width - 1) { // exit the board from the left
+            creditBonus.x = 10;
+            return;
+        }
+
+        if (possibleStep(creditBonus.direction, creditBonus)) {
+            moves[creditBonus.direction](creditBonus);
+        }
+
+        var posibleMoves = getPossibleMoves(creditBonus);
+        if (posibleMoves.length >= 3) {
+            var randDirection = Math.floor((Math.random() * posibleMoves.length));
+            creditBonus.direction = posibleMoves[randDirection];
+        } else if (posibleMoves.length == 2) {
+            creditBonus.direction = getNewDirection(creditBonus);
+        }
+    }
+
+    function printCreditBonus() {
+        var imageObj = new Image();
+        imageObj.width = "20px";
+        imageObj.height = "20px";
+        imageObj.src = creditBonus.imagePath;
+        ctx.drawImage(imageObj, creditBonus.x - creditBonus.radius, creditBonus.y - creditBonus.radius, 20, 20);
+    }
 
 //return array with all the possible moves to the given figure. max = 4 directions
-function getPosibleMoves(figure){
-    var res = [];
-    if (checkPosibleStep(37,figure)==true) { res.push(37); } // left
+    function getPossibleMoves(figure) {
+        var res = [];
+        if (possibleStep(37, figure) == true) {
+            res.push(37);
+        } // left
 
-    if (checkPosibleStep(38,figure)==true) { res.push(38); } // up
+        if (possibleStep(38, figure) == true) {
+            res.push(38);
+        } // up
 
-    if (checkPosibleStep(39,figure)==true) { res.push(39); } // right
+        if (possibleStep(39, figure) == true) {
+            res.push(39);
+        } // right
 
-    if (checkPosibleStep(40,figure)==true) { res.push(40); } // down
+        if (possibleStep(40, figure) == true) {
+            res.push(40);
+        } // down
 
-    return res;
-}
+        return res;
+    }
 
 // in given ghost in 2 road crossroad, the function finds the new direction to move
-function getNewDirection(ghostFigure)
-{
-    if (ghostFigure.direction == 37) //left
-    {
-        if (checkPosibleStep(38,ghostFigure) == true) return 38;
-        if (checkPosibleStep(40,ghostFigure) == true) return 40;
-        if (checkPosibleStep(37,ghostFigure) == true) return 37;
-    }
-
-    if (ghostFigure.direction == 38) //up
-    {
-        if (checkPosibleStep(37,ghostFigure) == true) return 37;
-        if (checkPosibleStep(39,ghostFigure) == true) return 39;
-        if (checkPosibleStep(38,ghostFigure) == true) return 38;
-    }
-
-    if (ghostFigure.direction == 40) // down
-    {
-        if (checkPosibleStep(37,ghostFigure) == true) return 37;
-        if (checkPosibleStep(39,ghostFigure) == true) return 39;
-        if (checkPosibleStep(40,ghostFigure) == true) return 40;
-    }
-
-    if (ghostFigure.direction == 39) // right
-    {
-        if (checkPosibleStep(38,ghostFigure) == true) return 38;
-        if (checkPosibleStep(40,ghostFigure) == true) return 40;
-        if (checkPosibleStep(39,ghostFigure) == true) return 39;
-    }
-}
-
-function Game() // main game loop
-{
-    doMovePacman();
-    checkCoinsColision();
-    moveGhosts();
-    draw();
-    checkGameWin();
-    if (creditBonus != null)
-    {
-        movecreditBonus();
-        checkcreditBonusCollision();
-    }
-    if (lives == 0)
-    {
-        clearInterval(intervalId);
-        endGame();
-        return;
-    }
-    if (speedmode)
-    {
-        maintainSpeedAdd();
-    }
-    if (eattingGhostMode)
-    {
-        maintainEattingGhost();
-    }
-    checkBonusesCollion();
-    checkGhostsCollision();
-    handelTimer();
-}
-
-function drawLives()
-{
-    $("#lives").html("");
-    for(var i = 0; i < lives; i++)
-    {
-        $("#lives").prepend('<img src="./images/game/heart.png" style="width:10px; height:10px; margin-left:2px;" />');
-    }
-}
-
-function draw()
-{
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // clear the canvas
-    printBoard(); // print the board
-    printPacman(); // print the figure
-    printCoin();
-    //printGhosts();
-    if (creditBonus != null)
-    {
-        printcreditBonus();
-    }
-    printBonuses();
-    drawLives();
-}
-
-function checkcreditBonusCollision()
-{
-    if (checkCollision(pacman, creditBonus))
-    {
-        gamePoints += creditBonus.cost;
-        creditBonus = null;
-    }
-}
-
-function checkGameWin(){
-    if(numOfCoins == 0)
-    {
-        endGame();
-    }
-}
-
-function handelTimer(){
-    ++counterToOneSecond;
-    if (intervalSize * counterToOneSecond > 1000)
-    {
-        timeLeft--;
-        counterToOneSecond = 0;
-    }
-    document.getElementById("timeLeft").innerHTML = "Time left: " + timeLeft;
-    if (timeLeft ==0)
-    {
-        endGame();
-    }
-}
-
-function startPlaying()
-{
-    $("#div_endgame").hide(); // hide the end game div in case this is a "play again"
-    //$("#instructions").show();
-    if (isGameStaring == true)
-    {
-        init();
-        $("#btn_reset").css("z-index","-1");
-    }
-    if (isJustLostLife == true) // reset the locations of pacman and the ghosts
-    {
-        pacman.x = pacman.startingX;
-        pacman.y = pacman.startingY;
-        pacman.currentDirection = 37;
-        for (var i = 0; i < ghosts.length; i++) // reset the ghosts to starting points
+    function getNewDirection(ghostFigure) {
+        if (ghostFigure.direction == 37) //left
         {
-            ghosts[i].x = ghosts[i].startingX;
-            ghosts[i].y = ghosts[i].startingY;
-            ghosts[i].direction = 37;
+            if (possibleStep(38, ghostFigure) == true) return 38;
+            if (possibleStep(40, ghostFigure) == true) return 40;
+            if (possibleStep(37, ghostFigure) == true) return 37;
         }
-        isJustLostLife = false;
-        oppositeCurse = 0;
-    }
-    draw();
-    ctx.font = "30px Arial";
-    ctx.fillStyle="white"
-    ctx.fillText("Get Ready" ,100, 100);
-    setTimeout(function() {
-        intervalId =setInterval(Game,intervalSize);
-    }, 1500);
-}
 
-function endGame()
-{
-    clearInterval(intervalId);
-    stopSound(gameMusic);
-    updateTopScore();
-    $("#div_endgame").show();
-    $("#div_topScore span").text(topScore);
-    $("#div_endGameScore span").text(gamePoints);
-    if (gamePoints >= 150)
+        if (ghostFigure.direction == 38) //up
+        {
+            if (possibleStep(37, ghostFigure) == true) return 37;
+            if (possibleStep(39, ghostFigure) == true) return 39;
+            if (possibleStep(38, ghostFigure) == true) return 38;
+        }
+
+        if (ghostFigure.direction == 40) // down
+        {
+            if (possibleStep(37, ghostFigure) == true) return 37;
+            if (possibleStep(39, ghostFigure) == true) return 39;
+            if (possibleStep(40, ghostFigure) == true) return 40;
+        }
+
+        if (ghostFigure.direction == 39) // right
+        {
+            if (possibleStep(38, ghostFigure) == true) return 38;
+            if (possibleStep(40, ghostFigure) == true) return 40;
+            if (possibleStep(39, ghostFigure) == true) return 39;
+        }
+    }
+
+    function Game() // main game loop
     {
-        $("#p_endGameStatus").text("We Have a Winner!!!");
-    } else {
-        $("#p_endGameStatus").html("You Lost <br/><br/> You Can do better ;)");
-    }
-    $("#btn_reset").css("z-index","3");
-    isGameStaring = true;
-}
+        doMovePacman();
+        checkCoinsCollision();
+        moveGhosts();
+        draw();
+        checkGameWin();
+        if (creditBonus != null) {
+            moveCreditBonus();
+            checkCreditBonusCollision();
+        }
+        if (lives == 0) {
+            clearInterval(intervalId);
+            endGame();
+            return;
+        }
+        if (speedmode) {
+            maintainSpeedAdd();
+        }
 
-function updateTopScore()
-{
-    if (gamePoints > topScore) {
-        topScore = gamePoints;
+        checkBonusesCollion();
+        checkGhostsCollision();
+        handelTimer();
     }
-}
 
-function playAgain()
-{
-    $("#div_endgame").hide();
-    $("#div_game").hide();
-    $("#gameSettings").show();
-    isGameStaring = true;
-}
+    function drawLives() {
+        $("#lives").html("");
+        for (var i = 0; i < lives; i++) {
+            $("#lives").prepend('<img src="./images/heart.png" style="width:10px; height:10px; margin-left:2px;" />');
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // clear the canvas
+        printBoard(); // print the board
+        printPacman(); // print the figure
+        printCoin();
+        printGhosts();
+        if (creditBonus != null) {
+            printCreditBonus();
+        }
+        printBonuses();
+        drawLives();
+    }
+
+    function checkCreditBonusCollision() {
+        if (checkCollision(pacman, creditBonus)) {
+            gamePoints += creditBonus.cost;
+            creditBonus = null;
+        }
+    }
+
+    function checkGameWin() {
+        if (numOfCoins == 0) {
+            endGame();
+        }
+    }
+
+    function handelTimer() {
+        ++counterToOneSecond;
+        if (intervalSize * counterToOneSecond > 1000) {
+            timeLeft--;
+            counterToOneSecond = 0;
+        }
+        document.getElementById("timeLeft").innerHTML = "Time left: " + timeLeft;
+        if (timeLeft == 0) {
+            endGame();
+        }
+    }
+
+    function startPlaying() {
+        $("#div_endgame").hide(); // hide the end game div in case this is a "play again"
+        //$("#instructions").show();
+        if (isGameStaring == true) {
+            init();
+            $("#btn_reset").css("z-index", "-1");
+        }
+        if (isJustLostLife == true) // reset the locations of pacman and the ghosts
+        {
+            pacman.x = pacman.startingX;
+            pacman.y = pacman.startingY;
+            pacman.currentDirection = 37;
+            for (var i = 0; i < ghosts.length; i++) // reset the ghosts to starting points
+            {
+                ghosts[i].x = ghosts[i].startingX;
+                ghosts[i].y = ghosts[i].startingY;
+                ghosts[i].direction = 37;
+            }
+            isJustLostLife = false;
+            oppositeCurse = 0;
+        }
+        draw();
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "white"
+        ctx.fillText("Get Ready", 100, 100);
+        setTimeout(function () {
+            intervalId = setInterval(Game, intervalSize);
+        }, 1500);
+    }
+
+    function endGame() {
+        clearInterval(intervalId);
+        stopSound(gameMusic);
+        updateTopScore();
+        $("#div_endgame").show();
+        $("#div_topScore span").text(topScore);
+        $("#div_endGameScore span").text(gamePoints);
+        if (gamePoints >= 150) {
+            $("#p_endGameStatus").text("We Have a Winner!!!");
+        } else {
+            $("#p_endGameStatus").html("You Lost <br/><br/> You Can do better ;)");
+        }
+        $("#btn_reset").css("z-index", "3");
+        isGameStaring = true;
+    }
+
+    function updateTopScore() {
+        if (gamePoints > topScore) {
+            topScore = gamePoints;
+        }
+    }
+
+    function playAgain() {
+        $("#div_endgame").hide();
+        $("#div_game").hide();
+        $("#gameSettings").show();
+        isGameStaring = true;
+    }
 
 // function get figure and prints the picture of it
 // stored in imagePath
-function printPicture(figure)
-{
+function printPicture(figure) {
     var imageObj = new Image();
     imageObj.width = "20px";
     imageObj.height = "20px";
@@ -908,32 +805,29 @@ function printPicture(figure)
     ctx.drawImage(imageObj, figure.x, figure.y, 20, 20);
 }
 
-function playSound(path)
-{
-    gameMusic = new Audio(path); // buffers automatically when created
+function playSound(path) {
+    gameMusic = new Audio(path); // ASK ALON HOW TO ADD AUDIO
     gameMusic.play();
 }
 
-function stopSound(soundToStop)
-{
+function stopSound(soundToStop) {
     soundToStop.pause();
     soundToStop.currentTime = 0;
 }
 
-function copyArr(array) // helper method
-{
-    var copy = new Array(array.length);
-    for (var i = 0; i < array.length; i++)
-    {
-        copy[i] = new Array(array[i].length);
-    }
-
-    for (var i = 0; i < array.length; i++)
-    {
-        for (var j = 0; j < array.length; j++)
-        {
-            copy[i][j] = array[i][j];
+function getBestMoveForGhost(ghost) {
+    var locations = getPossibleMoves(ghost.x, ghost.y);
+    var lastMax = board.length * board[0].length;
+    var result;
+    if (locations.length == 1) return {x: locations[0].x, y: locations[0].y};
+    for (var i = 0; i < 4; i++) {
+        if (locations[i] != null) {
+            var manhattan = Math.sqrt(Math.pow(locations[i].x - shape.i, 2) + Math.pow(locations[i].y - shape.j, 2));
+            if (manhattan < lastMax && (ghost.y != locations[i].y || ghost.x != locations[i].x )) {
+                lastMax = manhattan;
+                result = {x: locations[i].x, y: locations[i].y};
+            }
         }
     }
-    return copy;
+    return result;
 }
