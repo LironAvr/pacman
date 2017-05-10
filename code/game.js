@@ -144,30 +144,30 @@ function initBonusWithPlace(bonusNumber)
 function setCoins()
 {
     coinsArray = [];
-    var _25points = Math.ceil( numOfCoins*0.1 );
-    var _15points = Math.floor( numOfCoins*0.3 );
-    var _5points = numOfCoins-_15points-_25points;
+    var gold = Math.ceil( numOfCoins * 0.1 );
+    var silver = Math.floor( numOfCoins * 0.3 );
+    var bronze = numOfCoins - silver - gold;
 
-    while (_5points > 0)
+    while (bronze > 0)
     {
         coinsArray.push(createCoin(5, "orange"));
-        _5points -= 1;
+        bronze -= 1;
     }
-    while (_15points > 0)
+    while (silver > 0)
     {
         coinsArray.push(createCoin(15, "silver"));
-        _15points -= 1;
+        silver -= 1;
     }
-    while (_25points > 0)
+    while (gold > 0)
     {
         coinsArray.push(createCoin(25, "yellow"));
-        _25points -= 1;
+        gold -= 1;
     }
 }
 
 function checkBonusesCollision()
 {
-    for (var i =0; i < bonuses.length; i++)
+    for (var i = 0; i < bonuses.length; i++)
     {
         var bonus = bonuses[i];
         if (bonus != null)
@@ -185,9 +185,7 @@ function checkBonusesCollision()
 function setPoison(){
     poison = initBonusWithPlace(4, poison);
     poison.imagePath = poisonPicture;
-    poison.doMagic = function() {
-        diePacmanDie(1);
-    }
+    poison.doMagic = function() { diePacmanDie(1); }
     bonuses.push(poison);
 }
 
@@ -243,7 +241,7 @@ function maintainSpeedAdd()
 function createCoin(bonus, color){
     var place = getRandomEmptyTile();
     board[place[1]][place[0]] = 2;
-    var coin = {x : place[0]*20+10 , y : place[1]*20+10, radius : 6, color : color, cost: bonus};
+    var coin = {x : place[0] * 20 + 10 , y : place[1] * 20 + 10, radius : 6, color : color, cost: bonus};
     return coin;
 }
 
@@ -254,11 +252,11 @@ function printBoard() {
         {
             if(board[row][col]==1)
             {
-                ctx.fillStyle="black";
-                ctx.fillRect(col*20,row*20,20,20);
-            } else {
                 ctx.fillStyle="blue";
-                ctx.fillRect(col*20,row*20,20,20);
+                ctx.fillRect(col * 20, row * 20, 20, 20);
+            } else {
+                ctx.fillStyle="black";
+                ctx.fillRect(col * 20, row * 20, 20, 20);
             }
         }
     }
@@ -309,7 +307,7 @@ moves = {
 }
 
 function oppositeDirection(){
-    if (37 == pacman.currentDirection) pacman.currentDirection = 39;
+    if      (37 == pacman.currentDirection) pacman.currentDirection = 39;
     else if (38 == pacman.currentDirection) pacman.currentDirection = 40;
     else if (39 == pacman.currentDirection) pacman.currentDirection = 37;
     else if (40 == pacman.currentDirection) pacman.currentDirection = 38;
@@ -490,7 +488,7 @@ function printGhosts(){
         imageObj.width = "20px";
         imageObj.height = "20px";
         imageObj.src = ghost.imagePath;
-        ctx.drawImage(imageObj, ghost.x - ghost.radius, ghost.y -ghost.radius , 20, 20);
+        ctx.drawImage(imageObj, ghost.x - ghost.radius, ghost.y - ghost.radius , 20, 20);
     }
 }
 
@@ -508,7 +506,7 @@ function checkGhostsCollision()
 function diePacmanDie(type){
     clearInterval(intervalId);
     lives--;
-    var msg = "You have to run faster!";
+    var msg = "Run Pacman, Run!";
     isJustLostLife = true;
     ctx.font = "30px Arial";
     ctx.fillStyle="white"
@@ -560,10 +558,10 @@ function moveGhosts()
     for (var i = 0; i < ghosts.length; i++)
     {
         var ghost = ghosts[i];
-        var possibleMoves = getPossibleMoves(ghost).length;
+        //var possibleMoves = getPossibleMoves(ghost).length;
 
-        if (possibleMoves >= 3) // check if this is a greater than 3 roads crossroad
-        {
+        /*if (possibleMoves >= 3) // check if this is a greater than 3 roads crossroad
+        {*/
             var ghostFixX = Math.floor(ghost.x / 20);
             var ghostFixY = Math.floor(ghost.y / 20);
             var pacmanFixX = Math.floor(pacman.x / 20);
@@ -579,33 +577,14 @@ function moveGhosts()
             ghost.oldGoal.x = pacmanFixX;
             ghost.oldGoal.y = pacmanFixY;
 
-            ghost.ghostsBoard[ghostFixY][ghostFixX] = 1;
-            ghost.ghostsBoard[pacmanFixY][pacmanFixX] = 1;
+            //ghost.ghostsBoard[ghostFixY][ghostFixX] = 8;   //Start
+            //ghost.ghostsBoard[pacmanFixY][pacmanFixX] = 9; //Destination
 
             //find the new location for the ghost
-            var directions = getBestMoveForGhost(ghost);
-            var directionForGhost = directions[0];
-            console.log(directions);
-            if (directionForGhost == 'East') // right
-            {
-                ghost.direction = 39;
-            }
-            if (directionForGhost == 'West') // left
-            {
-                ghost.direction = 37;
-            }
-            if (directionForGhost == 'North') // left
-            {
-                ghost.direction = 38;
-            }
-            if (directionForGhost == 'South') // left
-            {
-                ghost.direction = 40;
-            }
-        } else if (possibleMoves == 2) {
-            ghost.direction = getNewDirection(ghost);
-        }
-        moves[ghost.direction](ghost);
+            ghost.direction = getBestMoveForGhost(ghost);
+            //var directionForGhost = nextDirection;
+            //console.log(nextDirection);
+            moves[ghost.direction](ghost);
     }
 }
 
@@ -834,7 +813,7 @@ function printPicture(figure) {
 }
 
 function playSound(path) {
-    var gameMusic = new Audio(path);
+    gameMusic = new Audio(path);
     gameMusic.play();
 }
 
@@ -844,16 +823,36 @@ function stopSound(soundToStop) {
 }
 
 function getBestMoveForGhost(ghost) {
-    var locations = getPossibleMoves(ghost.x, ghost.y);
+    var locations = getPossibleMoves(ghost);
     var lastMax = board.length * board[0].length;
     var result;
-    if (locations.length == 1) return {x: locations[0].x, y: locations[0].y};
-    for (var i = 0; i < 4; i++) {
+    if (locations.length == 1) return locations[0];
+    for (var i = 0; i < locations.length; i++) {
         if (locations[i] != null) {
-            var manhattan = Math.sqrt(Math.pow(locations[i].x - shape.i, 2) + Math.pow(locations[i].y - shape.j, 2));
-            if (manhattan < lastMax && (ghost.y != locations[i].y || ghost.x != locations[i].x )) {
+
+            var location;
+            switch (locations[i]){
+                case 37:{ //left
+                    location = {x: ghost.x - 1, y: ghost.y};
+                    break;
+                }
+                case 38:{ //up
+                    location = {x: ghost.x, y: ghost.y - 1};
+                    break;
+                }
+                case 39:{ //right
+                    location = {x: ghost.x + 1, y: ghost.y};
+                    break;
+                }
+                case 40:{ //down
+                    location = {x: ghost.x, y: ghost.y + 1};
+                    break;
+                }
+            }
+            var manhattan = Math.sqrt(Math.pow(location.x - ghost.x, 2) + Math.pow(location.y - ghost.y, 2));
+            if (manhattan < lastMax) {
                 lastMax = manhattan;
-                result = {x: locations[i].x, y: locations[i].y};
+                result = locations[i];
             }
         }
     }

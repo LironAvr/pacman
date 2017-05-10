@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39288acd-8530-4865-8b28-7200c968f648" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/JScode.js" afterPath="$PROJECT_DIR$/code/JScode.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/game.js" afterPath="$PROJECT_DIR$/code/game.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index_with_obstacles.htm" afterPath="$PROJECT_DIR$/index_with_obstacles.htm" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,11 +26,31 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="349" column="42" lean-forward="false" selection-start-line="349" selection-start-column="42" selection-end-line="349" selection-end-column="42" />
+            <state relative-caret-position="126">
+              <caret line="829" column="40" lean-forward="false" selection-start-line="829" selection-start-column="40" selection-end-line="829" selection-end-column="40" />
               <folding>
-                <marker date="1494411785000" expanded="true" signature="20905:20946" ph="..." />
+                <marker date="1494427194000" expanded="true" signature="20347:20388" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JScode.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/code/JScode.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="board.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/code/board.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -36,7 +59,17 @@
         <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/code/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -45,8 +78,8 @@
       <file leaf-file-name="index_with_obstacles.htm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index_with_obstacles.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="205" column="35" lean-forward="true" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
+            <state relative-caret-position="153">
+              <caret line="210" column="0" lean-forward="true" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
               <folding>
                 <element signature="e#9227#9234#1" expanded="true" />
               </folding>
@@ -65,18 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>startPla</find>
-      <find>=</find>
-      <find>==</find>
-      <find>gri</find>
-      <find>grid</find>
-      <find>startpla</find>
-      <find>g</find>
-      <find>ghost</find>
-      <find>ghostB</find>
-      <find>ghostBo</find>
-      <find>ghostBoar</find>
-      <find>ghostBoard</find>
       <find>Empty</find>
       <find>Empty'</find>
       <find>'Empty'</find>
@@ -95,6 +116,18 @@
       <find>figure.</find>
       <find>figure.ra</find>
       <find>figure.rad</find>
+      <find>_25points</find>
+      <find>_15points</find>
+      <find>_5points</find>
+      <find>possiblestep</find>
+      <find>getbestmove</find>
+      <find>stop</find>
+      <find>getBestMoveForGhost</find>
+      <find>possibleStep</find>
+      <find>possible</find>
+      <find>getpossibleMove</find>
+      <find>moves</find>
+      <find>getpossiblemoves</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -111,6 +144,10 @@
       <replace>===</replace>
       <replace>ghostsBoard</replace>
       <replace>0</replace>
+      <replace>25points</replace>
+      <replace>gold</replace>
+      <replace>silver</replace>
+      <replace>bronze</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -122,12 +159,12 @@
         <option value="$PROJECT_DIR$/game.js" />
         <option value="$PROJECT_DIR$/board.js" />
         <option value="$PROJECT_DIR$/code/main.js" />
-        <option value="$PROJECT_DIR$/code/JScode.js" />
         <option value="$PROJECT_DIR$/style/style.css" />
         <option value="$PROJECT_DIR$/code/ghostBoard.js" />
         <option value="$PROJECT_DIR$/code/board.js" />
         <option value="$PROJECT_DIR$/code/jquery.validate.min.js" />
         <option value="$PROJECT_DIR$/index_with_obstacles.htm" />
+        <option value="$PROJECT_DIR$/code/JScode.js" />
         <option value="$PROJECT_DIR$/code/game.js" />
       </list>
     </option>
@@ -139,8 +176,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="height" value="709" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -158,8 +196,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -230,23 +266,24 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/sounds" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/code" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/style" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sounds" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -261,8 +298,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index_with_obstacles.htm">
+  <component name="RunManager" selected="JavaScript Debug.index_with_obstacles.htm (1)">
     <configuration default="false" name="index_with_obstacles.htm" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/untitled/index_with_obstacles.htm">
+      <method />
+    </configuration>
+    <configuration default="false" name="index_with_obstacles.htm (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/untitled/index_with_obstacles.htm">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -331,12 +371,14 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index_with_obstacles.htm" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index_with_obstacles.htm (1)" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index_with_obstacles.htm" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index_with_obstacles.htm (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index_with_obstacles.htm" />
       </list>
     </recent_temporary>
   </component>
@@ -352,12 +394,14 @@
       <updated>1494102824343</updated>
       <workItem from="1494102827266" duration="14637000" />
       <workItem from="1494330429123" duration="89000" />
-      <workItem from="1494333463657" duration="20317000" />
+      <workItem from="1494333463657" duration="20485000" />
+      <workItem from="1494412139944" duration="377000" />
+      <workItem from="1494412572489" duration="5599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35043000" />
+    <option name="totallyTimeSpent" value="41187000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -369,17 +413,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1171875" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11686587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19787517" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.196875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -404,9 +448,67 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/code/game.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1494427194000" expanded="true" signature="20347:20388" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_with_obstacles.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3075">
+          <caret line="205" column="35" lean-forward="false" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
+          <folding>
+            <element signature="e#9227#9234#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1494427194000" expanded="true" signature="20347:20388" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_with_obstacles.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3075">
+          <caret line="205" column="35" lean-forward="true" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
+          <folding>
+            <element signature="e#9227#9234#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/game.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2400">
           <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1494427194000" expanded="true" signature="20347:20388" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -419,7 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6060">
           <caret line="404" column="18" lean-forward="false" selection-start-line="404" selection-start-column="18" selection-end-line="404" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -427,7 +528,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2400">
           <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1494427194000" expanded="true" signature="20347:20388" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -440,7 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6060">
           <caret line="404" column="18" lean-forward="true" selection-start-line="404" selection-start-column="18" selection-end-line="404" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -493,15 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
           <caret line="239" column="1" lean-forward="true" selection-start-line="239" selection-start-column="1" selection-end-line="239" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -509,7 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -517,7 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -525,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -534,17 +624,25 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/JScode.js">
+    <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="165">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3493">
+        <state relative-caret-position="75">
           <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
           <folding />
         </state>
@@ -552,28 +650,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index_with_obstacles.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="205" column="35" lean-forward="true" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
+        <state relative-caret-position="153">
+          <caret line="210" column="0" lean-forward="true" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
           <folding>
             <element signature="e#9227#9234#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
+    <entry file="file://$PROJECT_DIR$/code/JScode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="349" column="42" lean-forward="false" selection-start-line="349" selection-start-column="42" selection-end-line="349" selection-end-column="42" />
+        <state relative-caret-position="126">
+          <caret line="829" column="40" lean-forward="false" selection-start-line="829" selection-start-column="40" selection-end-line="829" selection-end-column="40" />
           <folding>
-            <marker date="1494411785000" expanded="true" signature="20905:20946" ph="..." />
+            <marker date="1494427194000" expanded="true" signature="20347:20388" ph="..." />
           </folding>
         </state>
       </provider>
