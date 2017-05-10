@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39288acd-8530-4865-8b28-7200c968f648" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/code/grid.js" afterPath="$PROJECT_DIR$/code/ghostsBoard.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/JScode.js" afterPath="$PROJECT_DIR$/code/JScode.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/board.js" afterPath="$PROJECT_DIR$/code/board.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/game.js" afterPath="$PROJECT_DIR$/code/game.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/main.js" afterPath="$PROJECT_DIR$/code/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index_with_obstacles.htm" afterPath="$PROJECT_DIR$/index_with_obstacles.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/style.css" afterPath="$PROJECT_DIR$/style/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,72 +27,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pacman.ico" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/pacman.ico">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pac-ManLogo.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/Pac-ManLogo.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="liron.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/liron.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="directions.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/directions.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Adar_S.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/Adar_S.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bonus.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/bonus.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ghost.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/ghost.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1396">
-              <caret line="737" column="8" lean-forward="false" selection-start-line="737" selection-start-column="8" selection-end-line="737" selection-end-column="8" />
+            <state relative-caret-position="233">
+              <caret line="44" column="124" lean-forward="false" selection-start-line="44" selection-start-column="119" selection-end-line="44" selection-end-column="124" />
               <folding>
-                <marker date="1494404029000" expanded="true" signature="20979:21020" ph="..." />
+                <marker date="1494410519000" expanded="true" signature="20901:20942" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="board.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code/board.js">
+      <file leaf-file-name="ghostsBoard.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-303">
-              <caret line="418" column="17" lean-forward="false" selection-start-line="418" selection-start-column="17" selection-end-line="418" selection-end-column="17" />
+            <state relative-caret-position="165">
+              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -96,9 +52,11 @@
       <file leaf-file-name="index_with_obstacles.htm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index_with_obstacles.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-              <folding />
+            <state relative-caret-position="126">
+              <caret line="205" column="35" lean-forward="true" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
+              <folding>
+                <element signature="e#9227#9234#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,25 +72,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getPosibleMoves</find>
-      <find>bonus</find>
-      <find>movecreditBonus</find>
-      <find>movereditBonus</find>
-      <find>moveCreditBonus</find>
-      <find>checkPossibleStep</find>
-      <find>val</find>
-      <find>validateStep</find>
-      <find>validateSte</find>
-      <find>p</find>
-      <find>possible</find>
-      <find>possibleS</find>
-      <find>possibleStep</find>
-      <find>eat</find>
-      <find>checkPosibleStep</find>
-      <find>checkCoinsColision</find>
-      <find>checkCoinsColission</find>
-      <find>checkCoinsCollission</find>
-      <find>printcreditBonus</find>
       <find>checkcreditBonusCollision</find>
       <find>posibleMoves</find>
       <find>checkBonusesCollion</find>
@@ -140,10 +79,29 @@
       <find>create</find>
       <find>ghosts</find>
       <find>game</find>
-      <find>ghost</find>
       <find>createg</find>
       <find>450</find>
       <find>printghosts</find>
+      <find>startPla</find>
+      <find>=</find>
+      <find>==</find>
+      <find>gri</find>
+      <find>grid</find>
+      <find>startpla</find>
+      <find>g</find>
+      <find>ghost</find>
+      <find>ghostB</find>
+      <find>ghostBo</find>
+      <find>ghostBoar</find>
+      <find>ghostBoard</find>
+      <find>Empty</find>
+      <find>Empty'</find>
+      <find>'Empty'</find>
+      <find>ghostsBoard</find>
+      <find>ghostsboard</find>
+      <find>goba</find>
+      <find>createghosts</find>
+      <find>start</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -157,6 +115,9 @@
       <replace>checkCreditBonusCollision</replace>
       <replace>possibleMoves</replace>
       <replace>checkBonusesCollision</replace>
+      <replace>===</replace>
+      <replace>ghostsBoard</replace>
+      <replace>0</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -167,7 +128,13 @@
       <list>
         <option value="$PROJECT_DIR$/game.js" />
         <option value="$PROJECT_DIR$/board.js" />
+        <option value="$PROJECT_DIR$/code/main.js" />
+        <option value="$PROJECT_DIR$/code/JScode.js" />
+        <option value="$PROJECT_DIR$/style/style.css" />
+        <option value="$PROJECT_DIR$/code/ghostBoard.js" />
         <option value="$PROJECT_DIR$/code/board.js" />
+        <option value="$PROJECT_DIR$/code/jquery.validate.min.js" />
+        <option value="$PROJECT_DIR$/index_with_obstacles.htm" />
         <option value="$PROJECT_DIR$/code/game.js" />
       </list>
     </option>
@@ -179,10 +146,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="43" />
-    <option name="width" value="1260" />
-    <option name="height" value="686" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -211,6 +176,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="style" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -264,15 +243,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sounds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/code" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/code" />
       <recent name="$PROJECT_DIR$/style" />
     </key>
   </component>
@@ -379,12 +359,12 @@
       <updated>1494102824343</updated>
       <workItem from="1494102827266" duration="14637000" />
       <workItem from="1494330429123" duration="89000" />
-      <workItem from="1494333463657" duration="15283000" />
+      <workItem from="1494333463657" duration="19572000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30009000" />
+    <option name="totallyTimeSpent" value="34298000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -396,17 +376,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="43" width="1260" height="686" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09047619" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11831442" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1171875" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20583469" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1984375" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -516,34 +496,92 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/style/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="239" column="1" lean-forward="true" selection-start-line="239" selection-start-column="1" selection-end-line="239" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/jquery.validate.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/jquery-3.2.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/jquery-3.2.0.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/images/ghost.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index_with_obstacles.htm">
+    <entry file="file://$PROJECT_DIR$/code/JScode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        <state relative-caret-position="180">
+          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-303">
-          <caret line="418" column="17" lean-forward="false" selection-start-line="418" selection-start-column="17" selection-end-line="418" selection-end-column="17" />
+        <state relative-caret-position="-3493">
+          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_with_obstacles.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="205" column="35" lean-forward="true" selection-start-line="205" selection-start-column="35" selection-end-line="205" selection-end-column="35" />
+          <folding>
+            <element signature="e#9227#9234#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1396">
-          <caret line="737" column="8" lean-forward="false" selection-start-line="737" selection-start-column="8" selection-end-line="737" selection-end-column="8" />
+        <state relative-caret-position="233">
+          <caret line="44" column="124" lean-forward="false" selection-start-line="44" selection-start-column="119" selection-end-line="44" selection-end-column="124" />
           <folding>
-            <marker date="1494404029000" expanded="true" signature="20979:21020" ph="..." />
+            <marker date="1494410519000" expanded="true" signature="20901:20942" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>

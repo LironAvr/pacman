@@ -3,7 +3,7 @@
  */
 
 var board = new Array(21);
-for (i=0; i < board.length; i++)
+for (var i = 0; i < board.length; i++)
 {
     board[i] = new Array(23);
 }

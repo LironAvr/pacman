@@ -105,14 +105,10 @@ function createGhosts() //TODO: fix ghost creation
                 startingY: corners[i + 1].y,
                 imagePath: ghostPicture
             };
-            //var position = {x : -1, y : -1};
             ghost.oldStart = {x : -1, y : -1};
             ghost.oldGoal = {x : -1, y : -1};
-            //ghost.imagePath = ghostPicture;
-
-            //ghost.grid = copyArr(grid);
+            ghost.ghostsBoard = copyArr(ghostsBoard);
         }
-
             ghosts.push(ghost)
     }
     console.log(ghosts);
@@ -575,16 +571,16 @@ function moveGhosts()
             //remove ghost from previous location
             if (ghost.oldStart.x != -1)
             {
-                ghost.grid[ghost.oldStart.y][ghost.oldStart.x] = 'Empty';
-                ghost.grid[ghost.oldGoal.y][ghost.oldGoal.x] = 'Empty';
+                ghost.ghostsBoard[ghost.oldStart.y][ghost.oldStart.x] = 0;
+                ghost.ghostsBoard[ghost.oldGoal.y][ghost.oldGoal.x] = 0;
             }
             ghost.oldStart.x = ghostFixX;
             ghost.oldStart.y = ghostFixY;
             ghost.oldGoal.x = pacmanFixX;
             ghost.oldGoal.y = pacmanFixY;
 
-            ghost.grid[ghostFixY][ghostFixX] = "start";
-            ghost.grid[pacmanFixY][pacmanFixX] = "Goal";
+            ghost.ghostsBoard[ghostFixY][ghostFixX] = 1;
+            ghost.ghostsBoard[pacmanFixY][pacmanFixX] = 1;
 
             //find the new location for the ghost
             var directions = getBestMoveForGhost(ghost);

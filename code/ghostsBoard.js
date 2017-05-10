@@ -3,7 +3,7 @@
  */
 
 var ghostsBoard = new Array(21);
-for (i=0; i < ghostsBoard.length; i++)
+for (var i = 0; i < ghostsBoard.length; i++)
 {
     ghostsBoard[i] = new Array(23);
 }

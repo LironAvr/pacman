@@ -29,8 +29,15 @@ function rightPassword(userName, password){
 }
 
 function letsPlay(){
-	$("#setting").hide();
-	$("#div_game").show();
-	$("#myCanvas").focus();
-	startPlaying();
+    instrucOpen();
+}
+
+function playNow(){
+    var ins = document.getElementById('instructions');
+    ins.style.display = "none";
+    $("#setting").hide();
+    $("#div_game").show();
+    $("#myCanvas").focus();
+
+    startPlaying();
 }

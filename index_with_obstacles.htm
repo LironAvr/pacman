@@ -204,15 +204,31 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span id="closeAbout" class="close">&times;</span>
             <p>Adar Ovadya and Liron Avraham</p>
+        </div>
+    </div>
+
+    <div id="instructions" class="modal">
+        <div class="modal-content">
+            <span id="closeInstruct" class="close">&times;</span>
+            <p class="footer-links">
+                <label for="score_bonus_img">+50 points</label>
+                <img src="Images/bonus.png" id="score_bonus_img" class="img_instruct">
+                <label for="poison_img">Lost 1 life</label>
+                <img src="Images/poison.png" id="poison_img" class="img_instruct">
+                <label for="goBack_img">Pacman moved upside down</label>
+                <img src="Images/directions.png" id="goBack_img" class="img_instruct">
+            </p>
+            <button class="button" onclick="playNow()">PLAY</button>
         </div>
     </div>
 
     <script type="text/javascript" src="Code/main.js"></script>
     <script type="text/javascript" src="Code/validation.js"> </script>
-    <script type="text/javascript" src="Code/JScode.js"></script>
+    <script type="text/javascript" src="code/JScode.js"></script>
     <script type="text/javascript" src="Code/board.js"></script>
+    <script type="text/javascript" src="Code/ghostsBoard.js"></script>
     <!--script type="text/javascript" src="scripts/pathfinder.js"></script-->
     <script type="text/javascript" src="Code/game.js"></script>
 
