@@ -7,9 +7,9 @@ var sounds = {"gameSound" : "sounds/music.mp3"}
 var gameMusic;
 
 var ghosts = [];
-var corners = [{x : 30, y : 30} , { x : 370, y : 30 }, { x : 370, y : 450 }, { x: 30 , y : 430}]; //check corners
-var ghostsPictures = "Images/ghost.png";
-var poisonPicture = "Images/poison.png";
+var corners = [{x : 30, y : 30} , { x : 410, y : 30 }, { x : 410, y : 390 }, { x: 30 , y : 390}]; //check corners
+var ghostPicture = "images/ghost.png";
+var poisonPicture = "images/poison.png";
 var confusePicture = "images/directions.png";
 var bonusPicture = "images/bonus.png";
 var speedPicture = "images/speed.png";
@@ -32,18 +32,12 @@ var isGameStaring = true; // flag to tell if to run init function
 var isJustLostLife = false;
 
 var bonuses = [];
-
-//NEW
 var oppositeCurse;
 var poison;
-
-//
-
 var speedAddition;
 var speedmode;
 var speedSecondsCounter;
-
-var topScore = -1;
+var topScore = 0;
 
 function init(){ // initialization function
     $("#game").css("display" , "block");
@@ -52,7 +46,7 @@ function init(){ // initialization function
     startPositionPacman(); // we override the pacman x and y
 
     numOfGhost = $("#ghostsNum").val();
-    //createGhosts();
+    createGhosts();
 
     creditBonus = {x : 390, y : 30, radius : 10 , imagePath: bonusPicture, direction: 39, speed: 4, cost : 50};
     numOfCoins = $("#coinsNum").val();
@@ -108,14 +102,15 @@ function createGhosts() //TODO: fix ghost creation
                 direction: 37,
                 speed: 4,
                 startingX: corners[i + 1].x,
-                startingY: corners[i + 1].y
+                startingY: corners[i + 1].y,
+                imagePath: ghostPicture
             };
-            var position = {x : -1, y : -1};
-            ghost.oldStart = position;
-            ghost.imagePath = ghostsPictures[i];
-            ghost.oldGoal = position.copy();
+            //var position = {x : -1, y : -1};
+            ghost.oldStart = {x : -1, y : -1};
+            ghost.oldGoal = {x : -1, y : -1};
+            //ghost.imagePath = ghostPicture;
 
-            ghost.grid = copyArr(grid);
+            //ghost.grid = copyArr(grid);
         }
 
             ghosts.push(ghost)
@@ -126,7 +121,7 @@ function createGhosts() //TODO: fix ghost creation
 function getRandomEmptyTile()
 {
     var row;
-    var col; // (0,0) is wall for sure
+    var col;
     var check;
     do {
         row = Math.floor((Math.random() * 22));

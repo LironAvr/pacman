@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="39288acd-8530-4865-8b28-7200c968f648" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/board.js" afterPath="$PROJECT_DIR$/code/board.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/game.js" afterPath="$PROJECT_DIR$/code/game.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -70,23 +71,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-237">
-              <caret line="830" column="34" lean-forward="true" selection-start-line="830" selection-start-column="34" selection-end-line="830" selection-end-column="34" />
+            <state relative-caret-position="-1396">
+              <caret line="737" column="8" lean-forward="false" selection-start-line="737" selection-start-column="8" selection-end-line="737" selection-end-column="8" />
               <folding>
-                <marker date="1494399646000" expanded="true" signature="20972:21013" ph="..." />
+                <marker date="1494404029000" expanded="true" signature="20979:21020" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="board.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="board.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/board.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="261" column="16" lean-forward="true" selection-start-line="261" selection-start-column="16" selection-end-line="261" selection-end-column="17" />
+            <state relative-caret-position="-303">
+              <caret line="418" column="17" lean-forward="false" selection-start-line="418" selection-start-column="17" selection-end-line="418" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -113,9 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>currentDirection</find>
-      <find>angel</find>
-      <find>initbonuswith</find>
       <find>getPosibleMoves</find>
       <find>bonus</find>
       <find>movecreditBonus</find>
@@ -136,10 +134,16 @@
       <find>checkCoinsCollission</find>
       <find>printcreditBonus</find>
       <find>checkcreditBonusCollision</find>
-      <find>game</find>
       <find>posibleMoves</find>
       <find>checkBonusesCollion</find>
+      <find>createghos</find>
       <find>create</find>
+      <find>ghosts</find>
+      <find>game</find>
+      <find>ghost</find>
+      <find>createg</find>
+      <find>450</find>
+      <find>printghosts</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -163,8 +167,8 @@
       <list>
         <option value="$PROJECT_DIR$/game.js" />
         <option value="$PROJECT_DIR$/board.js" />
-        <option value="$PROJECT_DIR$/code/game.js" />
         <option value="$PROJECT_DIR$/code/board.js" />
+        <option value="$PROJECT_DIR$/code/game.js" />
       </list>
     </option>
   </component>
@@ -375,12 +379,12 @@
       <updated>1494102824343</updated>
       <workItem from="1494102827266" duration="14637000" />
       <workItem from="1494330429123" duration="89000" />
-      <workItem from="1494333463657" duration="11579000" />
+      <workItem from="1494333463657" duration="15283000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26305000" />
+    <option name="totallyTimeSpent" value="30009000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,21 +529,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/game.js">
+    <entry file="file://$PROJECT_DIR$/code/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-237">
-          <caret line="830" column="34" lean-forward="true" selection-start-line="830" selection-start-column="34" selection-end-line="830" selection-end-column="34" />
-          <folding>
-            <marker date="1494399646000" expanded="true" signature="20972:21013" ph="..." />
-          </folding>
+        <state relative-caret-position="-303">
+          <caret line="418" column="17" lean-forward="false" selection-start-line="418" selection-start-column="17" selection-end-line="418" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/board.js">
+    <entry file="file://$PROJECT_DIR$/code/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="261" column="16" lean-forward="true" selection-start-line="261" selection-start-column="16" selection-end-line="261" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="-1396">
+          <caret line="737" column="8" lean-forward="false" selection-start-line="737" selection-start-column="8" selection-end-line="737" selection-end-column="8" />
+          <folding>
+            <marker date="1494404029000" expanded="true" signature="20979:21020" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
