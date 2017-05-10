@@ -7,7 +7,7 @@ var sounds = {"gameSound" : "sounds/music.mp3"}
 var gameMusic;
 
 var ghosts = [];
-var corners = [{x : 30, y : 30} , { x : 410, y : 30 }, { x : 410, y : 390 }, { x: 30 , y : 390}]; //check corners
+var corners = [{x : 30, y : 30} , { x : 410, y : 30 }, { x : 410, y : 390 }, { x: 30 , y : 390}];
 var ghostPicture = "images/ghost.png";
 var poisonPicture = "images/poison.png";
 var confusePicture = "images/directions.png";
@@ -28,7 +28,7 @@ var intervalSize = 45;
 var counterToOneSecond;
 var timeLeft;
 var lives;
-var isGameStaring = true; // flag to tell if to run init function
+var isGameStaring = true;
 var isJustLostLife = false;
 
 var bonuses = [];
@@ -43,7 +43,7 @@ function init(){ // initialization function
     $("#game").css("display" , "block");
 
     pacman = {x : 50, y : 30, radius : 10, speed : 4, currentDirection : 37, previousDirection : 37, nextDirection: 0, startingX : 50, startingY : 30};
-    startPositionPacman(); // we override the pacman x and y
+    startPositionPacman();
 
     numOfGhost = $("#ghostsNum").val();
     createGhosts();
@@ -89,7 +89,7 @@ function copyArr(array) // helper method
     return copy;
 }
 
-function createGhosts() //TODO: fix ghost creation
+function createGhosts()
 {
     for (var i = 0; i < numOfGhost; i++)
     {
@@ -118,13 +118,10 @@ function getRandomEmptyTile()
 {
     var row;
     var col;
-    var check;
     do {
         row = Math.floor((Math.random() * 22));
         col = Math.floor((Math.random() * 20));
-        if(board[col] == null)
-            check = true;
-
+        while (null == board[col]);
     }
     while (board[col][row] != 0);
     return [row, col];
@@ -193,7 +190,7 @@ function setOppositeCurse(){
     curse = initBonusWithPlace(4, curse);
     curse.imagePath = confusePicture;
     curse.doMagic = function() {
-        oppositeCurse = 30;
+        oppositeCurse = 200;
         curse = null;
     }
     bonuses.push(curse);
@@ -262,12 +259,10 @@ function printBoard() {
     }
 }
 
+//Placing the Pacman in the Left Top area of the board - far away from all them ghosts
 function startPositionPacman()
 {
     var place = getRandomEmptyTile();
-
-    // we want to place pacman on the left top side of the screen
-    // where there are no ghosts on start of the game
     while (place[0] > 12 || place[1] > 12)
     {
         place = getRandomEmptyTile();
@@ -285,7 +280,7 @@ function doMovePacman()
     // if that checks if we need to change direction to the next direction that saved in memory for pacman
     if (possibleStep(pacman.currentDirection, pacman) == false || possibleStep(pacman.nextDirection, pacman))
     {
-        if (pacman.currentDirection != 0) // we dont want to assign 0 to previousDirection
+        if (pacman.currentDirection != 0)
         {
             pacman.previousDirection = pacman.currentDirection;
         }
@@ -307,10 +302,22 @@ moves = {
 }
 
 function oppositeDirection(){
-    if      (37 == pacman.currentDirection) pacman.currentDirection = 39;
-    else if (38 == pacman.currentDirection) pacman.currentDirection = 40;
-    else if (39 == pacman.currentDirection) pacman.currentDirection = 37;
-    else if (40 == pacman.currentDirection) pacman.currentDirection = 38;
+    if      (37 == pacman.nextDirection) {
+        if (possibleStep(39, pacman)) pacman.nextDirection = 39;
+        else pacman.nextDirection = getNewDirection(39);
+    }
+    else if (38 == pacman.nextDirection) {
+        if (possibleStep(40, pacman)) pacman.nextDirection = 40;
+        else pacman.nextDirection = getNewDirection(40);
+    }
+    else if (39 == pacman.nextDirection) {
+        if (possibleStep(37, pacman)) pacman.nextDirection = 37;
+        else pacman.nextDirection = getNewDirection(37);
+    }
+    else if (40 == pacman.nextDirection) {
+        if (possibleStep(38, pacman)) pacman.nextDirection = 38;
+        else pacman.nextDirection = getNewDirection(38);
+    }
 }
 
 // return true if it possible to make step to the given figure in the given direction
@@ -780,11 +787,11 @@ function moveGhosts()
         endGameOpen();
         $("#div_topScore span").text(topScore);
         $("#div_endGameScore span").text(gamePoints);
-        if (gamePoints >= 150) {
-            $("#p_endGameStatus").text("We Have a Winner!!!");
-        } else {
-            $("#p_endGameStatus").html("You Lost <br/><br/> You Can do better ;)");
-        }
+
+        if (0 === lives)        $("#p_endGameStatus").text("You Lost!");
+        if (gamePoints >= 150)  $("#p_endGameStatus").text("We Have a Winner!!!");
+        else                    $("#p_endGameStatus").text("You Can do better");
+
         $("#btn_reset").css("z-index", "3");
         isGameStaring = true;
     }
@@ -814,7 +821,7 @@ function printPicture(figure) {
 
 function playSound(path) {
     gameMusic = new Audio(path);
-    gameMusic.play();
+    gameMusic.play().loop;
 }
 
 function stopSound(soundToStop) {
@@ -849,11 +856,12 @@ function getBestMoveForGhost(ghost) {
                     break;
                 }
             }
-            var manhattan = Math.sqrt(Math.pow(location.x - ghost.x, 2) + Math.pow(location.y - ghost.y, 2));
+            var manhattan = Math.sqrt(Math.pow(location.x - pacman.x, 2) + Math.pow(location.y - pacman.y, 2));
             if (manhattan < lastMax) {
                 lastMax = manhattan;
                 result = locations[i];
             }
+            else if (manhattan === lastMax) return getNewDirection(ghost);
         }
     }
     return result;
