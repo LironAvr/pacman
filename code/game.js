@@ -777,7 +777,7 @@ function moveGhosts()
         clearInterval(intervalId);
         stopSound(gameMusic);
         updateTopScore();
-        $("#div_endgame").show();
+        endGameOpen();
         $("#div_topScore span").text(topScore);
         $("#div_endGameScore span").text(gamePoints);
         if (gamePoints >= 150) {
