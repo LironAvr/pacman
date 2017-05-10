@@ -33,7 +33,9 @@
                         </button>
                     </td>
                     <td>
-                        <img id="pacman_logo" src="Images\Pac-ManLogo.png">
+                        <a href="https://en.wikipedia.org/wiki/Pac-Man" target="_blank">
+                            <img id="pacman_logo" src="Images\Pac-ManLogo.png">
+                        </a>
                     </td>
                     <td >
                         <label class="labelY labelY-rightAlign" id="helloLable">Hello</label>                        
@@ -169,14 +171,17 @@
                 <label class="labelY" id="timeLeft">Time: </label>
                 <div id="lives"></div>
                 <canvas id="myCanvas" width="460" height="480"></canvas>
-                <div id="div_endgame">
-                    <p id="p_endGameStatus">game end</p>
-                    <p id="div_endGameScore">You scored: <span></span></p>
-                    <p id="div_topScore">High Score:<span></span></p>
-                    <button id="btn_reset" >
-                        Play Again
-                        <span class="playAgain"></span>
-                    </button>
+                <div id="div_endgame" class="modal">
+                    <div class="modal-content">
+                        <span id="closeEndGame" class="close">&times;</span>
+                            <p id="p_endGameStatus">game end</p>
+                            <p id="div_endGameScore">You scored: <span></span></p>
+                            <p id="div_topScore">High Score:<span></span></p>
+                            <button id="btn_reset" >Play Again
+                                <span class="playAgain"></span>
+                            </button>
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -224,13 +229,13 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="Code/main.js"></script>
+    <script type="text/javascript" src="Code/validation.js"> </script>
     <script type="text/javascript" src="code/JScode.js"></script>
-    <script type="text/javascript" src="code/board.js"></script>
-    <script type="text/javascript" src="code/ghostsBoard.js"></script>
-    <script type="text/javascript" src="code/main.js"></script>
-    <script type="text/javascript" src="code/validation.js"> </script>
+    <script type="text/javascript" src="Code/board.js"></script>
+    <script type="text/javascript" src="Code/ghostsBoard.js"></script>
     <!--script type="text/javascript" src="scripts/pathfinder.js"></script-->
-    <script type="text/javascript" src="code/game.js"></script>
+    <script type="text/javascript" src="Code/game.js"></script>
 
 </body>
 </html>

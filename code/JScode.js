@@ -2,7 +2,6 @@ function PageLoaded()
 {
     ShowSection('welcome');
 }
-
 function ShowSection(id)
 {
         $("#register").hide();
@@ -55,6 +54,9 @@ function closeNav() {
         if (event.target == instruct) {
             instruct.style.display = "none";
         }
+        if (event.target == modal_endGame) {
+            modal_endGame.style.display = "none";
+        }
     }
 
     var instruct = document.getElementById('instructions');
@@ -66,6 +68,14 @@ function closeNav() {
         instruct.style.display = "none";
     }
 
+    var modal_endGame = document.getElementById('div_endgame');
+    var spanEndGame = document.getElementById('closeEndGame');
+    function endGameOpen(){
+        modal_endGame.style.display = "block";
+    }
+    spanEndGame.onclick = function() {
+        modal_endGame.style.display = "none";
+    }
 
 
 function showUserConect(){  
