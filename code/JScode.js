@@ -1,4 +1,4 @@
-    var context = myCanvas.getContext("2d");
+  /*  var context = myCanvas.getContext("2d");
     var shape=new Object();
     var board;
     var score;
@@ -54,7 +54,7 @@ addEventListener("keydown", function (e) {
 addEventListener("keyup", function (e) {
     keysDown[e.keyCode] = false;
 }, false);
-interval=setInterval(UpdatePosition, 250);*/
+interval=setInterval(UpdatePosition, 250);
 }
 
 
@@ -169,7 +169,7 @@ time_elapsed=(currentTime-start_time)/1000;
     {
         Draw();
     }
-}
+}*/
 
 function PageLoaded()
 {
