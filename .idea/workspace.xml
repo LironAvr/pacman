@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39288acd-8530-4865-8b28-7200c968f648" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/heart.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/speed.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sounds/Scary Halloween Music - Creepy Dollhouse.mp3" afterPath="$PROJECT_DIR$/sounds/music.mp3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/board.js" afterPath="$PROJECT_DIR$/code/board.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/game.js" afterPath="$PROJECT_DIR$/code/game.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -77,10 +72,10 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="676" column="29" lean-forward="false" selection-start-line="676" selection-start-column="29" selection-end-line="676" selection-end-column="29" />
+            <state relative-caret-position="1425">
+              <caret line="95" column="1" lean-forward="false" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
               <folding>
-                <marker date="1494378671000" expanded="true" signature="19909:19950" ph="..." />
+                <marker date="1494380400000" expanded="true" signature="20848:20889" ph="..." />
               </folding>
             </state>
           </provider>
@@ -141,6 +136,9 @@
       <find>printcreditBonus</find>
       <find>checkcreditBonusCollision</find>
       <find>game</find>
+      <find>posibleMoves</find>
+      <find>checkBonusesCollion</find>
+      <find>create</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -152,6 +150,8 @@
       <replace>checkCoinsCollision</replace>
       <replace>printCreditBonus</replace>
       <replace>checkCreditBonusCollision</replace>
+      <replace>possibleMoves</replace>
+      <replace>checkBonusesCollision</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -374,12 +374,12 @@
       <updated>1494102824343</updated>
       <workItem from="1494102827266" duration="14637000" />
       <workItem from="1494330429123" duration="89000" />
-      <workItem from="1494333463657" duration="8009000" />
+      <workItem from="1494333463657" duration="9626000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22735000" />
+    <option name="totallyTimeSpent" value="24352000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -394,7 +394,7 @@
     <frame x="10" y="43" width="1260" height="686" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09047619" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11831442" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -534,10 +534,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="676" column="29" lean-forward="false" selection-start-line="676" selection-start-column="29" selection-end-line="676" selection-end-column="29" />
+        <state relative-caret-position="1425">
+          <caret line="95" column="1" lean-forward="false" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
           <folding>
-            <marker date="1494378671000" expanded="true" signature="19909:19950" ph="..." />
+            <marker date="1494380400000" expanded="true" signature="20848:20889" ph="..." />
           </folding>
         </state>
       </provider>

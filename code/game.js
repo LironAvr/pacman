@@ -7,11 +7,13 @@ var sounds = {"gameSound" : "sounds/music.mp3"}
 var gameMusic;
 
 var ghosts = [];
-var corners = [{x : 30, y : 30} , { x : 370, y : 30 }, { x : 370, y : 450 }, { x: 30 , y : 430}];
-var ghostsPictures ="Images/ghost.png";
+var corners = [{x : 30, y : 30} , { x : 370, y : 30 }, { x : 370, y : 450 }, { x: 30 , y : 430}]; //check corners
+var ghostsPictures = "Images/ghost.png";
 var poisonPicture = "Images/poison.png";
 var confusePicture = "images/directions.png";
 var bonusPicture = "images/bonus.png";
+var speedPicture = "images/speed.png";
+
 var pacman;
 var numOfGhost;
 var creditBonus;
@@ -50,7 +52,7 @@ function init(){ // initialization function
     startPositionPacman(); // we override the pacman x and y
 
     numOfGhost = $("#ghostsNum").val();
-    createGhosts();
+    //createGhosts();
 
     creditBonus = {x : 390, y : 30, radius : 10 , imagePath: bonusPicture, direction: 39, speed: 4, cost : 50};
     numOfCoins = $("#coinsNum").val();
@@ -72,7 +74,25 @@ function init(){ // initialization function
     lives = 3;
     isGameStaring = false;
     speedmode = false;
-    playSound(sounds["gameSound"]);
+    //playSound(sounds["gameSound"]);
+}
+
+function copyArr(array) // helper method
+{
+    var copy = new Array(array.length);
+    for (var i = 0; i < array.length; i++)
+    {
+        copy[i] = new Array(array[i].length);
+    }
+
+    for (var i = 0; i < array.length; i++)
+    {
+        for (var j = 0; j < array.length; j++)
+        {
+            copy[i][j] = array[i][j];
+        }
+    }
+    return copy;
 }
 
 function createGhosts() //TODO: fix ghost creation
@@ -91,6 +111,7 @@ function createGhosts() //TODO: fix ghost creation
                 startingY: corners[i + 1].y
             };
             ghost.imagePath = ghostsPictures[i];
+            ghost.grid = copyArr(grid);
         }
 
             ghosts.push(ghost)
@@ -149,7 +170,7 @@ function setCoins()
     }
 }
 
-function checkBonusesCollion()
+function checkBonusesCollision()
 {
     for (var i =0; i < bonuses.length; i++)
     {
@@ -188,7 +209,7 @@ function setOppositeCurse(){
 function setSpeedAddition()
 {
     speedAddition = initBonusWithPlace(5);
-    speedAddition.imagePath = "./images/game/speed.png"
+    speedAddition.imagePath = speedPicture;
     speedAddition.doMagic = function() {
         speedmode = true;
         pacman.speed = 10;
@@ -305,7 +326,7 @@ function possibleStep(direction, figure)
     var fixX;
     var fixY;
 
-    if (direction== 0)
+    if (direction == 0)
     {
         return false;
     }
@@ -482,8 +503,7 @@ function checkGhostsCollision()
 {
     for (var i = 0; i < ghosts.length; i++)
     {
-        var ghost = ghosts[i];
-        if (checkCollision(pacman,ghost))
+        if (checkCollision(pacman,ghosts[i]))
         {
             diePacmanDie(2);
         }
@@ -554,6 +574,19 @@ function moveGhosts()
             var pacmanFixX = Math.floor(pacman.x / 20);
             var pacmanFixY = Math.floor(pacman.y / 20);
             //remove ghost from previous location
+            if (ghost.oldStart.x != -1)
+            {
+                ghost.grid[ghost.oldStart.y][ghost.oldStart.x] = 'Empty';
+                ghost.grid[ghost.oldGoal.y][ghost.oldGoal.x] = 'Empty';
+            }
+            ghost.oldStart.x = ghostFixX;
+            ghost.oldStart.y = ghostFixY;
+            ghost.oldGoal.x = pacmanFixX;
+            ghost.oldGoal.y = pacmanFixY;
+
+            ghost.grid[ghostFixY][ghostFixX] = "start";
+            ghost.grid[pacmanFixY][pacmanFixX] = "Goal";
+
             //find the new location for the ghost
             var directions = getBestMoveForGhost(ghost);
             var directionForGhost = directions[0];
@@ -574,7 +607,7 @@ function moveGhosts()
             {
                 ghost.direction = 40;
             }
-        } else if (posibleMoves == 2) {
+        } else if (possibleMoves == 2) {
             ghost.direction = getNewDirection(ghost);
         }
         moves[ghost.direction](ghost);
@@ -596,11 +629,11 @@ function moveGhosts()
             moves[creditBonus.direction](creditBonus);
         }
 
-        var posibleMoves = getPossibleMoves(creditBonus);
-        if (posibleMoves.length >= 3) {
-            var randDirection = Math.floor((Math.random() * posibleMoves.length));
-            creditBonus.direction = posibleMoves[randDirection];
-        } else if (posibleMoves.length == 2) {
+        var possibleMoves = getPossibleMoves(creditBonus);
+        if (possibleMoves.length >= 3) {
+            var randDirection = Math.floor((Math.random() * possibleMoves.length));
+            creditBonus.direction = possibleMoves[randDirection];
+        } else if (possibleMoves.length == 2) {
             creditBonus.direction = getNewDirection(creditBonus);
         }
     }
@@ -670,7 +703,7 @@ function moveGhosts()
     {
         doMovePacman();
         checkCoinsCollision();
-        moveGhosts();
+        //moveGhosts();
         draw();
         checkGameWin();
         if (creditBonus != null) {
@@ -686,8 +719,8 @@ function moveGhosts()
             maintainSpeedAdd();
         }
 
-        checkBonusesCollion();
-        checkGhostsCollision();
+        checkBonusesCollision();
+        //checkGhostsCollision();
         handelTimer();
     }
 
@@ -703,7 +736,7 @@ function moveGhosts()
         printBoard(); // print the board
         printPacman(); // print the figure
         printCoin();
-        printGhosts();
+        //printGhosts();
         if (creditBonus != null) {
             printCreditBonus();
         }
