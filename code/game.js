@@ -347,7 +347,7 @@ function possibleStep(direction, figure)
 
     if (direction == 37) // left
     {
-        fixX =(figure.x-figure.radius-figure.speed) / 20;
+        fixX =(figure.x - figure.radius - figure.speed) / 20;
         fixX = Math.floor(fixX);
 
         if (figure.x - figure.radius < 1) { // exit the board from the left
@@ -834,7 +834,7 @@ function printPicture(figure) {
 }
 
 function playSound(path) {
-    var gameMusic = new Audio(path); // ASK ALON HOW TO ADD AUDIO
+    var gameMusic = new Audio(path);
     gameMusic.play();
 }
 

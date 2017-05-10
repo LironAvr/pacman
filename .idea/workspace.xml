@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39288acd-8530-4865-8b28-7200c968f648" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/code/grid.js" afterPath="$PROJECT_DIR$/code/ghostsBoard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/JScode.js" afterPath="$PROJECT_DIR$/code/JScode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/board.js" afterPath="$PROJECT_DIR$/code/board.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/game.js" afterPath="$PROJECT_DIR$/code/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code/main.js" afterPath="$PROJECT_DIR$/code/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index_with_obstacles.htm" afterPath="$PROJECT_DIR$/index_with_obstacles.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/style.css" afterPath="$PROJECT_DIR$/style/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,19 +20,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="44" column="124" lean-forward="false" selection-start-line="44" selection-start-column="119" selection-end-line="44" selection-end-column="124" />
+            <state relative-caret-position="184">
+              <caret line="349" column="42" lean-forward="false" selection-start-line="349" selection-start-column="42" selection-end-line="349" selection-end-column="42" />
               <folding>
-                <marker date="1494410519000" expanded="true" signature="20901:20942" ph="..." />
+                <marker date="1494411785000" expanded="true" signature="20905:20946" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ghostsBoard.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ghostsBoard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -72,16 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>checkcreditBonusCollision</find>
-      <find>posibleMoves</find>
-      <find>checkBonusesCollion</find>
-      <find>createghos</find>
-      <find>create</find>
-      <find>ghosts</find>
-      <find>game</find>
-      <find>createg</find>
-      <find>450</find>
-      <find>printghosts</find>
       <find>startPla</find>
       <find>=</find>
       <find>==</find>
@@ -102,6 +85,16 @@
       <find>goba</find>
       <find>createghosts</find>
       <find>start</find>
+      <find>r</find>
+      <find>radi</find>
+      <find>radius</find>
+      <find>radius-</find>
+      <find>moveghost</find>
+      <find>figu</find>
+      <find>figure</find>
+      <find>figure.</find>
+      <find>figure.ra</find>
+      <find>figure.rad</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -359,12 +352,12 @@
       <updated>1494102824343</updated>
       <workItem from="1494102827266" duration="14637000" />
       <workItem from="1494330429123" duration="89000" />
-      <workItem from="1494333463657" duration="19572000" />
+      <workItem from="1494333463657" duration="20317000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34298000" />
+    <option name="totallyTimeSpent" value="35043000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -386,7 +379,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1984375" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19787517" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -567,21 +560,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="44" column="124" lean-forward="false" selection-start-line="44" selection-start-column="119" selection-end-line="44" selection-end-column="124" />
-          <folding>
-            <marker date="1494410519000" expanded="true" signature="20901:20942" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/ghostsBoard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="349" column="42" lean-forward="false" selection-start-line="349" selection-start-column="42" selection-end-line="349" selection-end-column="42" />
+          <folding>
+            <marker date="1494411785000" expanded="true" signature="20905:20946" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
